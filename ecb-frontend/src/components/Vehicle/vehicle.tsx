@@ -46,8 +46,11 @@ const Vehicle = ({
     <div className="vehicle-card-wrapper">
       <div
         data-clicked={clicked}
-        className={`vehicle-card ${id ? '' : 'no-id'} ${selected ? 'selected' : ''}`}
-        onClick={handleClick}>
+        data-selected={selected}
+        data-no-id={!id}
+        className="vehicle-card"
+        onClick={handleClick}
+      >
         {imageLoaded ? null : placeholderImg}
         <img
           className={`vehicle-card-img ${imageLoaded ? 'loaded' : ''}`}
