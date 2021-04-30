@@ -1,0 +1,58 @@
+{
+  "name": "demo-app",
+  "version": "1.0.0",
+  "description": "Demo app for serverles & AWS Lambda",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --cache",
+    "lint:updated": "pipe-git-updated --ext=js -- eslint --cache",
+    "prettier-check": "prettier -c --ignore-path .gitignore \"**/*.{css,html,js,json,md,yaml,yml}\"",
+    "prettier-check:updated": "pipe-git-updated --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier -c",
+    "prettify": "prettier --write --ignore-path .gitignore \"**/*.{css,html,js,json,md,yaml,yml}\"",
+    "prettify:updated": "pipe-git-updated --ext=css --ext=html --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier --write",
+    "test": "jest",
+    "dev": "yarn lint && sls offline --skipCacheInvalidation --stage dev --env development",
+    "deploy_dev": "SLS_DEBUG=* sls deploy --stage dev  --env development",
+    "qa": "sls offline --stage qa --env qa",
+    "deploy_qa": "sls deploy --stage qa --env qa",
+    "prod": "sls offline --stage prod --env production",
+    "deploy_prod": "sls deploy --stage prod --env production",
+    "clean": "npm cache clean --force"
+  },
+  "keywords": [
+    "serverless",
+    "aws",
+    "lambda",
+    "node"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "@serverless/eslint-config": "^2.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.6.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^32.3.3",
+    "git-list-updated": "^1.2.1",
+    "husky": "^4.2.5",
+    "jest": "^24.9.0",
+    "lambda-tester": "^4.0.1",
+    "prettier": "^2.0.5",
+    "serverless-deployment-bucket": "^1.1.0",
+    "serverless-dotenv-plugin": "^2.1.1",
+    "serverless-offline": "^5.12.1",
+    "serverless-plugin-typescript": "^1.1.7",
+    "serverless-s3-remover": "^0.6.0",
+    "typescript": "^4.2.4",
+    "@types/aws-lambda": "^8.10.76",
+    "@types/mongoose": "^5.10.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "dependencies": {
+    "mongoose": "^5.12.6"
+  }
+}

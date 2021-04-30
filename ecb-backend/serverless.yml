@@ -1,0 +1,125 @@
+service: ecb-api
+app: ecb-backend
+org: ricardo1994
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  project: ${self:app}
+  memorySize: 1024 # optional, in MB, default is 1024
+  timeout: 30 # optional, in seconds, default is 6
+  stage: ${opt:stage,'dev'}
+  stackName: ${opt:stage,'dev'}-${self:app} # Use a custom name for the CloudFormatiosn stack
+  apiGateway:
+    restApiId: ${env:API_GATEWAY_ID}
+    restApiRootResourceId: ${env:API_GATEWAY_RESOURCE_ID}
+  deploymentBucket:
+    name: ${opt:stage,'dev'}-serverless-ricardo
+    serverSideEncryption: AES256
+  deploymentPrefix: ${self:app}
+  tracing:
+    lambda: true
+    apiGateway: true
+  enviroment:
+    API_GATEWAY_ID: ${env:API_GATEWAY_ID}
+    API_GATEWAY_RESOURCE_ID: ${env:API_GATEWAY_RESOURCE_ID}
+    MONGO_URI: ${env:MONGO_URI}
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-deployment-bucket
+  - serverless-s3-remover
+
+custom:
+  webpack:
+    packager: "yarn" # Packager that will be used to package your external modules
+    includeModules:
+      packagePath: ./package.json
+
+  region: us-east-1
+  stage-default: "dev"
+
+  remover:
+    buckets:
+      - ${opt:stage,'dev'}-serverless-ricardo
+
+  package:
+    exclude:
+      - .gitignore
+      - .git/**
+    individually: true
+    excludeDevDependencies: true
+
+  dotenv:
+    include:
+      - API_GATEWAY_ID
+      - API_GATEWAY_RESOURCE_ID
+      - MONGO_URI
+
+functions:
+  getVehicles:
+    name: ${opt:stage,'dev'}-${self:app}-getVehicles
+    handler: src/handlers/index.getVehiclesHandler
+    events:
+      - http:
+          path: "/vehicles"
+          method: get
+          cors: true
+          integration: lambda-proxy
+          response:
+            headers:
+              Access-Control-Allow-Headers: "*"
+              Access-Control-Allow-Origin: "*"
+              Access-Control-Allow-Credentials: false
+  getVehicle:
+    name: ${opt:stage,'dev'}-${self:app}-getVehicle
+    handler: src/handlers/index.getVehicleHandler
+    events:
+      - http:
+          path: "/vehicles/{id}"
+          method: get
+          cors: true
+          integration: lambda-proxy
+          request:
+            parameters:
+              paths:
+                id: true
+          response:
+            headers:
+              Access-Control-Allow-Headers: "*"
+              Access-Control-Allow-Origin: "*"
+              Access-Control-Allow-Credentials: false
+  createUser:
+    name: ${opt:stage,'dev'}-${self:app}-createUser
+    handler: src/handlers/index.createUserHandler
+    events:
+      - http:
+          path: "/users"
+          method: post
+          cors: true
+          integration: lambda-proxy
+          response:
+            headers:
+              Access-Control-Allow-Headers: "*"
+              Access-Control-Allow-Origin: "*"
+              Access-Control-Allow-Credentials: false
+  getUser:
+    name: ${opt:stage,'dev'}-${self:app}-getUser
+    handler: src/handlers/index.getUserHandler
+    events:
+      - http:
+          path: "/users/{id}"
+          method: get
+          cors: true
+          integration: lambda-proxy
+          request:
+            parameters:
+              paths:
+                id: true
+          response:
+            headers:
+              Access-Control-Allow-Headers: "*"
+              Access-Control-Allow-Origin: "*"
+              Access-Control-Allow-Credentials: false

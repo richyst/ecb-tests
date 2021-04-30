@@ -1,0 +1,545 @@
+{
+	"info": {
+		"_postman_id": "829eb39c-637f-40cd-b104-29b71985f358",
+		"name": "ECB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/vehicles",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Vehicles Successfully",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/vehicles",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"vehicles"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-headers",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-methods",
+							"value": "*"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin,accept-encoding"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 30 Apr 2021 05:43:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"description\": \" change of suspension\",\n        \"make\": \"Nissan\",\n        \"model\": \"Versa\",\n        \"estimatedate\": \"2021/12/01\",\n        \"id\": 3340,\n        \"image\": \"http://3.23.108.188/cars/versa.jpg\"\n    },\n    {\n        \"description\": \" motor adjustment\",\n        \"make\": \" Honda \",\n        \"model\": \"CR-V\",\n        \"estimatedate\": \"\",\n        \"id\": 3341,\n        \"image\": \"http://3.23.108.188/cars/CR-V.jpg\"\n    },\n    {\n        \"description\": \" engine tuning \",\n        \"make\": \"Honda\",\n        \"model\": \"Civic\",\n        \"estimatedate\": \"2020/20/12\",\n        \"id\": 3342,\n        \"km\": 90000,\n        \"image\": \"http://3.23.108.188/cars/civic.jpg\"\n    },\n    {\n        \"description\": \" oil change \",\n        \"make\": \" Volkswaguen\",\n        \"model\": \"Tiguan\",\n        \"km\": 13500,\n        \"id\": 3343,\n        \"image\": \"http://3.23.108.188/cars/tiguan.jpg\"\n    },\n    {\n        \"description\": \" change of pads \",\n        \"make\": \" Nissan \",\n        \"model\": \"Sentra\",\n        \"km\": 6000,\n        \"id\": 3344,\n        \"image\": \"http://3.23.108.188/cars/sentra.jpg\"\n    },\n    {\n        \"description\": \" change of pads \",\n        \"make\": \"Volkswagen\",\n        \"model\": \"Vento\",\n        \"km\": 80050,\n        \"id\": 3345,\n        \"image\": \"http://3.23.108.188/cars/vento.jpg\"\n    },\n    {\n        \"description\": \"Change Transmission (CVT)\",\n        \"make\": \"Chevrolet\",\n        \"model\": \"Aveo NG\",\n        \"estimatedate\": \"2021/09/07\",\n        \"km\": 33460,\n        \"image\": \"http://3.23.108.188/cars/aveo.jpg\"\n    },\n    {\n        \"description\": \"Change ligths\",\n        \"make\": \"Chevrolet\",\n        \"model\": \"Spark\",\n        \"km\": 16098,\n        \"id\": 3347,\n        \"image\": \"http://3.23.108.188/cars/spark.jpg\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get SIngle Vehicle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/vehicles/3341",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"vehicles",
+						"3341"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get SIngle Vehicle Successfully",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/vehicles/3341",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"vehicles",
+								"3341"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-headers",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-methods",
+							"value": "*"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "139"
+						},
+						{
+							"key": "accept-ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 30 Apr 2021 05:43:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"description\": \" motor adjustment\",\n    \"make\": \" Honda \",\n    \"model\": \"CR-V\",\n    \"estimatedate\": \"\",\n    \"id\": 3341,\n    \"image\": \"http://3.23.108.188/cars/CR-V.jpg\"\n}"
+				},
+				{
+					"name": "Vehicle Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/vehicles/3",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"vehicles",
+								"3"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-headers",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-methods",
+							"value": "*"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "137"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 30 Apr 2021 05:45:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"VEHICLE_NOT_FOUND\",\n    \"status\": 404,\n    \"code\": \"not found\",\n    \"detail\": \"Vehicle was not found with given ID\",\n    \"message\": \"Vehicle not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Single User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/users/608b8d4a0aa8a30008d84be7",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"users",
+						"608b8d4a0aa8a30008d84be7"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Single User Successfully",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/users/608b8d4a0aa8a30008d84be7",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users",
+								"608b8d4a0aa8a30008d84be7"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-headers",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-methods",
+							"value": "*"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "118"
+						},
+						{
+							"key": "accept-ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 30 Apr 2021 05:43:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"608b8d4a0aa8a30008d84be7\",\n    \"name\": \"Ricardo\",\n    \"estimateDate\": \"2021-04-30T00:00:00.000Z\",\n    \"vehicleId\": 3344,\n    \"__v\": 0\n}"
+				},
+				{
+					"name": "User Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/users/123",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users",
+								"123"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-headers",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-methods",
+							"value": "*"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "190"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 30 Apr 2021 05:45:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"USER_NOT_FOUND\",\n    \"status\": 404,\n    \"code\": \"not found\",\n    \"detail\": \"User was not found with given ID\",\n    \"message\": \"Cast to ObjectId failed for value \\\"123\\\" at path \\\"_id\\\" for model \\\"User\\\"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"name\": \"Test\",\n    \"estimateDate\": \"2012-04-23T18:25:43.511Z\",\n    \"vehicleId\": 23423\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/users",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create User Successfully",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"name\": \"Test\",\n    \"estimateDate\": \"2012-04-23T18:25:43.511Z\",\n    \"vehicleId\": 23423\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/users",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "access-control-allow-headers",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-methods",
+							"value": "*"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "vary",
+							"value": "origin"
+						},
+						{
+							"key": "access-control-expose-headers",
+							"value": "WWW-Authenticate,Server-Authorization"
+						},
+						{
+							"key": "cache-control",
+							"value": "no-cache"
+						},
+						{
+							"key": "content-length",
+							"value": "116"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 30 Apr 2021 05:44:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"608b9934eefaef34b5a71a2a\",\n    \"name\": \"Test\",\n    \"estimateDate\": \"2012-04-23T18:25:43.511Z\",\n    \"vehicleId\": 23423,\n    \"__v\": 0\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "https://vb2d99ikc5.execute-api.us-east-1.amazonaws.com/dev"
+		}
+	]
+}
