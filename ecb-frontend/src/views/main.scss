@@ -2,6 +2,9 @@
   .vehicles-container {
     display: flex;
     flex-wrap: wrap;
+    max-width: 1080px;
+    justify-content: center;
+    margin: auto;
   }
 }
 
