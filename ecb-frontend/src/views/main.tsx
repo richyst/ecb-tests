@@ -10,10 +10,12 @@ import './main.scss'
 const Main = () : React.ReactElement => {
   const [vehicles, setVehicles] = useState<Array<VehicleInterface>>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
   const [selectedVehicle, setSelectedVehicle] = useState<number | null>(null)
   useEffect(() => {
     ApiService.getVehicles()
       .then(vehicleData => { setVehicles(vehicleData) })
+      .catch(err => setError(err.message))
       .finally(() => { setLoading(false) })
   }, [])
   
@@ -28,18 +30,18 @@ const Main = () : React.ReactElement => {
   return (
     <>
       <div className="container">
-        {loading ? <Spinner /> : (
-          <div className="vehicles-container">
-            {vehicles.map((vehicle, idx) => 
-              <Vehicle
-                selected={selectedVehicle === vehicle.id}
-                onClick={onVehicleClick}
-                key={vehicle.id || vehicle.km || idx}
-                {...vehicle}
-              />
-            )}
-          </div>
-        )}
+        {loading ? <Spinner /> : null}
+        {error ? <p className="error-msg">Error reaching API: <br/>{error}</p> : null}
+        <div className="vehicles-container">
+          {vehicles.map((vehicle, idx) => 
+            <Vehicle
+              selected={selectedVehicle === vehicle.id}
+              onClick={onVehicleClick}
+              key={vehicle.id || vehicle.km || idx}
+              {...vehicle}
+            />
+          )}
+        </div>
       </div>
       <Drawer open={!!selectedVehicle} closeDrawer={setSelectedVehicle.bind(this, null)}>
         {selectedVehicle ? <UserForm vehicleId={selectedVehicle}></UserForm> : null}

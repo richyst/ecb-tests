@@ -13,6 +13,7 @@ const UserForm = ({ vehicleId } : UserFormProps) : React.ReactElement=> {
   const [estimateDate, setEstimateDate] = useState('')
   const [loading, setLoading] = useState(false)
   const [newUser, setNewUser] = useState<User | any>({})
+  const [error, setError] = useState('')
 
   const onSubmit = (event : React.FormEvent<HTMLFormElement>) : void => {
     event.preventDefault()
@@ -22,13 +23,17 @@ const UserForm = ({ vehicleId } : UserFormProps) : React.ReactElement=> {
       estimateDate: new Date(estimateDate),
       vehicleId
     }
+    setError('')
     ApiService.createUser(user)
       .then((data) => {
         setNewUser(data)
         setName('')
         setEstimateDate('')
       })
-      .catch(console.error)
+      .catch(err => {
+        setNewUser({})
+        setError(err.message)
+      })
       .finally(() => { setLoading(false) })
   }
 
@@ -44,7 +49,7 @@ const UserForm = ({ vehicleId } : UserFormProps) : React.ReactElement=> {
     }
   }
   
-  const newUserData : React.ReactNode = newUser.name ? (
+  const newUserData : React.ReactNode = newUser._id ? (
     <div className="new-user-data">
       <p className="success-message">User newly created</p>
       {Object.keys(newUser).map(key => (
@@ -77,6 +82,7 @@ const UserForm = ({ vehicleId } : UserFormProps) : React.ReactElement=> {
       <p className="error-msg">Estimate date is invalid</p>
       <button disabled={loading} type="submit">Submit vehicle: {vehicleId}</button>
       {loading ? <Spinner /> : null}
+      {error ? <p className="api-error">Error reaching API: <br/>{error}</p> : null}
       {newUserData}
     </form>
   )
